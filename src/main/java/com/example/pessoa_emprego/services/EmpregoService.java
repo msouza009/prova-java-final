@@ -17,17 +17,21 @@ public class EmpregoService {
     private EmpregoRepository repo;
 
     public EmpregoDTO create(EmpregoCreateDTO dto) {
-        Emprego emprego = new Emprego(dto.getCargo(), dto.getSalario());
+        Emprego emprego = new Emprego(dto.getEndereco());
         emprego = repo.save(emprego);
-        return new EmpregoDTO(emprego.getId(), emprego.getCargo(), emprego.getSalario());
+        return new EmpregoDTO(emprego.getId(), emprego.getEndereco());
     }
 
     public List<EmpregoDTO> listar() {
-        return repo.findAll().stream().map(e -> new EmpregoDTO(e.getId(), e.getCargo(), e.getSalario())).collect(Collectors.toList());
+        return repo.findAll().stream()
+                .map(e -> new EmpregoDTO(e.getId(), e.getEndereco()))
+                .collect(Collectors.toList());
     }
 
     public EmpregoDTO buscar(Long id) {
-        return repo.findById(id).map(e -> new EmpregoDTO(e.getId(), e.getCargo(), e.getSalario())).orElse(null);
+        return repo.findById(id)
+                .map(e -> new EmpregoDTO(e.getId(), e.getEndereco()))
+                .orElse(null);
     }
 
     public void deletar(Long id) {

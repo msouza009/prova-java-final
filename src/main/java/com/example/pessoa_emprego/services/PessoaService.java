@@ -64,6 +64,6 @@ public class PessoaService {
     }
 
     private PessoaDTO toDTO(Pessoa p) {
-        return new PessoaDTO(p.getId(), p.getNome(), p.getCpf(), p.getEmprego().getCargo(), p.getEmprego().getSalario());
+        return new PessoaDTO(p.getId(), p.getNome(), p.getCpf(), p.getEmprego().getEndereco());
     }
 }

@@ -1,9 +1,6 @@
 package com.example.pessoa_emprego.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Emprego {
@@ -11,14 +8,13 @@ public class Emprego {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String cargo;
-    private Double salario;
+
+    private String endereco;
 
     public Emprego() {}
 
-    public Emprego(String cargo, Double salario) {
-        this.cargo = cargo;
-        this.salario = salario;
+    public Emprego(String endereco) {
+        this.endereco = endereco;
     }
 
     public Long getId() {
@@ -29,19 +25,11 @@ public class Emprego {
         this.id = id;
     }
 
-    public String getCargo() {
-        return cargo;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-    public Double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(Double salario) {
-        this.salario = salario;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 }

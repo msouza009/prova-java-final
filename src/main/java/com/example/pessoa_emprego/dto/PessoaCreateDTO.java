@@ -4,7 +4,7 @@ public class PessoaCreateDTO {
 
     private String nome;
     private long cpf;
-    private Long empregoId;
+    private Long empregoId;  // ID do emprego associado
 
     public String getNome() {
         return nome;
@@ -14,11 +14,11 @@ public class PessoaCreateDTO {
         this.nome = nome;
     }
 
-    public long getCpf() {  // Alterado de int para long
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {  // Alterado de int para long
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
